@@ -29,6 +29,13 @@ dev_dependencies:
     sdk: flutter
   fluttertoast: ^3.0.3
 
+  flutter_launcher_icons: ^0.7.0
+
+flutter_icons:
+  image_path: "assets/icon.png"
+  android: true 
+  ios: true
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -48,6 +55,7 @@ flutter:
     - image3.jpeg
     - image4.jpeg
     - image5.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
