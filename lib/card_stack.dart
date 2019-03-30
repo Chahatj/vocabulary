@@ -37,7 +37,7 @@ class _CardStackState extends State<CardStack>
     curvedAnimation =
         CurvedAnimation(parent: controller, curve: Curves.easeOut);
 
-    _translationAnim = Tween(begin: Offset(0.0, 0.0), end: Offset(-1000.0, 0.0))
+    _translationAnim = Tween(begin: Offset(0.0, 0.0), end: Offset(0.0, -1000.0))
         .animate(controller)
           ..addListener(() {
             setState(() {});
@@ -55,7 +55,7 @@ class _CardStackState extends State<CardStack>
         children: cards.reversed.map((card) {
           if (cards.indexOf(card) <= 2) {
             return GestureDetector(
-              onHorizontalDragEnd: _horizontalDragEnd,
+              onVerticalDragEnd: _verticalDragEnd,
               child: Transform.translate(
                 offset: _getFlickTransformOffset(card),
                 child: FractionalTranslation(
@@ -102,9 +102,9 @@ class _CardStackState extends State<CardStack>
     return Offset(0.0, 0.0);
   }
 
-  void _horizontalDragEnd(DragEndDetails details) {
+  void _verticalDragEnd(DragEndDetails details) {
     if (details.primaryVelocity < 0) {
-      // Swiped Right to Left
+      // Swiped Bottom to Top
       controller.forward().whenComplete(() {
         setState(() {
           controller.reset();
